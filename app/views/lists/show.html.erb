@@ -1,0 +1,23 @@
+<h1><%= @list.name %></h1>
+
+<p><strong>Movies</strong></p>
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li><%= bookmark.movie.title %></li>
+    <li><%= bookmark.comment %></li>
+    <%= link_to "Delete",
+    bookmark_path(bookmark),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+  <% end %>
+</ul>
+<br>
+
+<p>Add a Movie</p>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie %>
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Home", lists_path %>
