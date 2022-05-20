@@ -1,7 +1,12 @@
 <h1>My lists</h1>
+<%= cl_image_tag("sample",
+      width: 400, height: 300, crop: :fill) %>
 <ul>
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list_path(list)%></li>
+    <% if list.photo.attached? %>
+      <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% end %>
 </ul>
 

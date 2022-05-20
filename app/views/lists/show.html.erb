@@ -1,9 +1,12 @@
 <h1><%= @list.name %></h1>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 
 <p><strong>Movies</strong></p>
 <ul>
   <% @list.bookmarks.each do |bookmark| %>
     <li><%= bookmark.movie.title %></li>
+    <li><%= image_tag bookmark.movie.poster_url%>
+    <li><%= bookmark.movie.rating%>
     <li><%= bookmark.comment %></li>
     <%= link_to "Delete",
     bookmark_path(bookmark),

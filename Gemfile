@@ -48,6 +48,9 @@ gem "sassc-rails"
 # Protect access keys
 gem "dotenv-rails", groups: [:development, :test]
 
+# Gemfile
+gem "cloudinary"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
